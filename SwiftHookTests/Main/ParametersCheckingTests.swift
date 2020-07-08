@@ -205,4 +205,19 @@ class ParametersCheckingTests: XCTestCase {
         }
     }
     
+    func testCallOriginalWithObjectAndSEL() {
+        // TODO:
+        let array = NSArray.init(array: ["aaa", "bbb", "ccc"])
+        do {
+            try hookInstead(object: array, selector: #selector(NSArray.object(at:)), closure: { original, index in
+                return original(index)
+            } as @convention(block) ((UInt) -> Any, UInt) -> Any)
+            XCTFail()
+        } catch SwiftHookError.unsupport(value: let value) {
+            XCTAssertEqual(value, .specifiedInstanceRelease)
+        } catch {
+            XCTAssertNil(error)
+        }
+    }
+    
 }

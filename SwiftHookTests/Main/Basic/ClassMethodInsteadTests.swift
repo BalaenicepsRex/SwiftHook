@@ -295,4 +295,8 @@ class ClassMethodInsteadTests: XCTestCase {
         }
     }
     
+    func testCallOriginalWithObjectAndSEL() {
+        // TODO:
+    }
+    
 }

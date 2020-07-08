@@ -283,4 +283,8 @@ class AllInstancesInsteadTests: XCTestCase {
         }
     }
     
+    func testCallOriginalWithObjectAndSEL() {
+        // TODO: 
+    }
+    
 }
